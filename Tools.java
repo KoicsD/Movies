@@ -8,7 +8,7 @@ public class Tools
 	
 	public static String toXML(String tagName, String value)
 	{
-		return "";
+		return "<" + tagName + ">" + value + "<" + "/" + tagName + ">";
 	}
 	
 	public static HashMap<Person, Integer> countMoviesPerPerson(List<Movie> movies)
