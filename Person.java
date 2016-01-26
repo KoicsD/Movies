@@ -46,6 +46,11 @@ public class Person
 	// to-XML converter:
 	public String toXML()
 	{
-		return "";
+		String firstName = Tools.toXML("firstName", this.firstName);
+		String lastName = Tools.toXML("lastName", this.lastName);
+		String gender = Tools.toXML("gender", this.gender.toString());
+		String hasOscar = Tools.toXML("hasOscar", Boolean.toString(this.hasOscar));
+		String hasGoldenGlobe = Tools.toXML("hasGoldenGlobe", Boolean.toString(this.hasGoldenGlobe));
+		return Tools.toXML("Person", firstName + lastName + gender + hasOscar + hasGoldenGlobe);
 	}
 }
