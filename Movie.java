@@ -15,9 +15,49 @@ enum Genre
 
 public class Movie
 {
+	// instance variables:
 	String title;
 	Genre genre;
 	long duration;
 	double rate;
 	List<Person> cast;
+	
+	// getter functions:
+	public String getTitle() { return this.title; }
+	public Genre getGenre() { return this.genre; }
+	public long getDuration() { return this.duration; }
+	public double getRate() { return this.rate; }
+	public List<Person> getCast() { return this.cast; }
+	
+	// setter functions:
+	public void setTitle(String title)
+	{
+		this.title = title;
+	}
+	
+	public void setGenre(Genre genre)
+	{
+		this.genre = genre;
+	}
+	
+	public void setDuration(long duration)
+	{
+		this.duration = duration;
+	}
+	
+	public void setRate(double rate)
+	{
+		this.rate = rate;
+	}
+	
+	public void setCast(List<Person> cast)
+	{
+		this.cast = cast;
+	}
+	
+	// to-XML converter:
+	public String toXML()
+	{
+		return "";
+	}
 }
