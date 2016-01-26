@@ -58,6 +58,21 @@ public class Movie
 	// to-XML converter:
 	public String toXML()
 	{
-		return "";
+		String title = Tools.toXML("title", this.title);
+		String genre = Tools.toXML("genre", this.genre.toString());
+		String duration = Tools.toXML("duration", Long.toString(this.duration));
+		String rate = Tools.toXML("rate", Double.toString(this.rate));
+		String cast = Tools.toXML("cast", personsToXML(this.cast));
+		return Tools.toXML("Movie", title + genre + duration + rate + cast);
+	}
+	
+	private static String personsToXML(List<Person> persons)
+	{
+		String retStr = "";
+		for(Person person: persons)
+		{
+			retStr += person.toXML();
+		}
+		return retStr;
 	}
 }
