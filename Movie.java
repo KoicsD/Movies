@@ -1,4 +1,5 @@
 import java.util.List;
+import java.util.ArrayList;
 
 
 enum Genre
@@ -20,14 +21,14 @@ public class Movie
 	Genre genre;
 	long duration;
 	double rate;
-	List<Person> cast;
+	ArrayList<Person> cast;
 	
 	// getter functions:
 	public String getTitle() { return this.title; }
 	public Genre getGenre() { return this.genre; }
 	public long getDuration() { return this.duration; }
 	public double getRate() { return this.rate; }
-	public List<Person> getCast() { return this.cast; }
+	public ArrayList<Person> getCast() { return this.cast; }
 	
 	// setter functions:
 	public void setTitle(String title)
@@ -52,7 +53,7 @@ public class Movie
 	
 	public void setCast(List<Person> cast)
 	{
-		this.cast = cast;
+		this.cast = new ArrayList<Person>(cast);  // this makes a (shallow) copy of the list (and also force a type-cast)
 	}
 	
 	// to-XML converter:
