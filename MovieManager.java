@@ -1,9 +1,12 @@
 import java.util.List;
 import java.util.ArrayList;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 
 public class MovieManager
 {
-	static final String XML_FILE_PATH = "Data/Movies.xml"; 
+	static final String XML_FILE_PATH = "c://dev/Java/Week9A_Java_XML/Data/movies.xml"; 
 	
 	public static void main(String[] args)
 	{
@@ -94,6 +97,36 @@ public class MovieManager
 		for(String title: titles)
 		{
 			System.out.println(title);
+		}
+		
+		// getting XML-notation string of the movies and writing them into file:
+		String xMLString = "";
+		for(Movie movie: mentorsFavouriteMovies)
+		{
+			xMLString += movie.toXML();
+		}
+		xMLString = Tools.toXML("movies", xMLString);
+		File file = new File(XML_FILE_PATH);
+		try
+		{
+			if (file.createNewFile())
+			{
+				System.out.println("File was not but has been created.");
+				FileWriter fileWriter = new FileWriter(file);
+				fileWriter.write(xMLString);
+				fileWriter.flush();
+				fileWriter.close();
+			}
+		}
+		catch (IOException e)
+		{
+			System.out.println("An IOEexception was thrown when creating new file:");
+			System.out.println(e.getMessage());
+		}
+		catch (SecurityException e)
+		{
+			System.out.println("A SecurityEexception was thrown when creating new file:");
+			System.out.println(e.getMessage());
 		}
 	}
 }
