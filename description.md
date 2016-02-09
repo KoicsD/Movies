@@ -35,7 +35,7 @@ and is able to make an XML report from your object structure.
 
 Create the following class structure:
 
-![](description/movies_uml.jpg)
+![](Description/movies_uml.jpg)
 
 You will have to do the followings:
 * Movies have title, genre, duration (in minutes),
@@ -65,7 +65,7 @@ You will have to do the followings:
 
 -----
 
-[movies.xml](description/movies.xml)
+[movies.xml](Description/movies.xml)
 
 -----------
 
