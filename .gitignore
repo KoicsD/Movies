@@ -1,5 +1,8 @@
 *.class
 
+# My Data used by program:
+Data/
+
 # Mobile Tools for Java (J2ME)
 .mtj.tmp/
 
