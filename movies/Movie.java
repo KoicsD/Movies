@@ -3,7 +3,7 @@ import java.util.List;
 import java.util.ArrayList;
 
 
-public class Movie
+public class Movie extends Product
 {
 	// possible genres as enumeration:
 	public static enum Genre
@@ -18,25 +18,18 @@ public class Movie
 	}
 	
 	// instance variables:
-	protected String title;
 	protected Genre genre;
 	protected long duration;
 	protected double rate;
 	protected ArrayList<Actor> cast;
 	
 	// getter functions:
-	public String getTitle() { return this.title; }
 	public Genre getGenre() { return this.genre; }
 	public long getDuration() { return this.duration; }
 	public double getRate() { return this.rate; }
 	public ArrayList<Actor> getCast() { return this.cast; }
 	
 	// setter functions:
-	public void setTitle(String title)
-	{
-		this.title = title;
-	}
-	
 	public void setGenre(Genre genre)
 	{
 		this.genre = genre;
