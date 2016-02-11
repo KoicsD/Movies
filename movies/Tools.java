@@ -10,24 +10,24 @@ public class Tools
 		return "<" + tagName + ">" + value + "<" + "/" + tagName + ">";
 	}
 	
-	public static HashMap<Person, Integer> countMoviesPerPerson(List<Movie> movies)
+	public static HashMap<Actor, Integer> countMoviesPerActor(List<Movie> movies)
 	{
-		HashMap<Person, Integer> moviesPerPerson = new HashMap<Person, Integer>();
+		HashMap<Actor, Integer> moviesPerActor = new HashMap<Actor, Integer>();
 		for(Movie movie: movies)
 		{
-			for(Person person: movie.getCast())
+			for(Actor actor: movie.getCast())
 			{
-				if(moviesPerPerson.containsKey(person))
+				if(moviesPerActor.containsKey(actor))
 				{
-					moviesPerPerson.put(person, moviesPerPerson.get(person) + 1);
+					moviesPerActor.put(actor, moviesPerActor.get(actor) + 1);
 				}
 				else
 				{
-					moviesPerPerson.put(person, 0);
+					moviesPerActor.put(actor, 0);
 				}
 			}
 		}
-		return moviesPerPerson;
+		return moviesPerActor;
 	}
 	
 	public static String[] getMovieTitles(List<Movie> movies)

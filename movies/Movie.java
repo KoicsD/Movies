@@ -22,14 +22,14 @@ public class Movie
 	Genre genre;
 	long duration;
 	double rate;
-	ArrayList<Person> cast;
+	ArrayList<Actor> cast;
 	
 	// getter functions:
 	public String getTitle() { return this.title; }
 	public Genre getGenre() { return this.genre; }
 	public long getDuration() { return this.duration; }
 	public double getRate() { return this.rate; }
-	public ArrayList<Person> getCast() { return this.cast; }
+	public ArrayList<Actor> getCast() { return this.cast; }
 	
 	// setter functions:
 	public void setTitle(String title)
@@ -52,9 +52,9 @@ public class Movie
 		this.rate = rate;
 	}
 	
-	public void setCast(List<Person> cast)
+	public void setCast(List<Actor> cast)
 	{
-		this.cast = new ArrayList<Person>(cast);  // this makes a (shallow) copy of the list (and also force a type-cast)
+		this.cast = new ArrayList<Actor>(cast);  // this makes a (shallow) copy of the list (and also force a type-cast)
 	}
 	
 	// to-XML converter:
@@ -68,12 +68,12 @@ public class Movie
 		return Tools.toXML("Movie", title + genre + duration + rate + cast);
 	}
 	
-	private static String personsToXML(List<Person> persons)
+	private static String personsToXML(List<Actor> actors)
 	{
 		String retStr = "";
-		for(Person person: persons)
+		for (Actor actor: actors)
 		{
-			retStr += person.toXML();
+			retStr += actor.toXML();
 		}
 		return retStr;
 	}

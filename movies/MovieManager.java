@@ -12,51 +12,51 @@ public class MovieManager
 	public static void main(String[] args)
 	{
 		// collecting actors:
-		Person[] mentorsFavouriteActors = new Person[5];
+		Actor[] mentorsFavouriteActors = new Actor[5];
 		
-		mentorsFavouriteActors[0] = new Person();
-		Person diCaprio = mentorsFavouriteActors[0];
+		mentorsFavouriteActors[0] = new Actor();
+		Actor diCaprio = mentorsFavouriteActors[0];
 		diCaprio.setFirstName("Leonardo");
 		diCaprio.setLastName("Di Caprio");
-		diCaprio.setGender(Person.Gender.MALE);
+		diCaprio.setGender(Actor.Gender.MALE);
 		diCaprio.setHasOscar(false);
 		diCaprio.setHasGoldenGlobe(true);
 		
-		mentorsFavouriteActors[1] = new Person();
-		Person winslet = mentorsFavouriteActors[1];
+		mentorsFavouriteActors[1] = new Actor();
+		Actor winslet = mentorsFavouriteActors[1];
 		winslet.setFirstName("Kate");
 		winslet.setLastName("Winslet");
-		winslet.setGender(Person.Gender.FEMALE);
+		winslet.setGender(Actor.Gender.FEMALE);
 		winslet.setHasOscar(true);
 		winslet.setHasGoldenGlobe(true);
 		
-		mentorsFavouriteActors[2] = new Person();
-		Person reeves = mentorsFavouriteActors[2];
+		mentorsFavouriteActors[2] = new Actor();
+		Actor reeves = mentorsFavouriteActors[2];
 		reeves.setFirstName("Keanu");
 		reeves.setLastName("Reeves");
-		reeves.setGender(Person.Gender.MALE);
+		reeves.setGender(Actor.Gender.MALE);
 		reeves.setHasOscar(false);
 		reeves.setHasGoldenGlobe(false);
 		
-		mentorsFavouriteActors[3] = new Person();
-		Person moss = mentorsFavouriteActors[3];
+		mentorsFavouriteActors[3] = new Actor();
+		Actor moss = mentorsFavouriteActors[3];
 		moss.setFirstName("Carrie-Anne");
 		moss.setLastName("Moss");
-		moss.setGender(Person.Gender.FEMALE);
+		moss.setGender(Actor.Gender.FEMALE);
 		moss.setHasOscar(false);
 		moss.setHasGoldenGlobe(false);
 		
-		mentorsFavouriteActors[4] = new Person();
-		Person cotillard = mentorsFavouriteActors[4];
+		mentorsFavouriteActors[4] = new Actor();
+		Actor cotillard = mentorsFavouriteActors[4];
 		cotillard.setFirstName("Marion");
 		cotillard.setLastName("Cotillard");
-		cotillard.setGender(Person.Gender.FEMALE);
+		cotillard.setGender(Actor.Gender.FEMALE);
 		cotillard.setHasOscar(true);
 		cotillard.setHasGoldenGlobe(true);
 		
 		// collecting movies:
 		ArrayList<Movie> mentorsFavouriteMovies = new ArrayList<Movie>(3);
-		List<Person> cast = new ArrayList<Person>();
+		List<Actor> cast = new ArrayList<Actor>();
 		
 		mentorsFavouriteMovies.add(new Movie());
 		Movie titanic = mentorsFavouriteMovies.get(0);
