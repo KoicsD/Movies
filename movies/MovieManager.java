@@ -113,11 +113,11 @@ public class MovieManager
 			if (file.createNewFile())
 			{
 				System.out.println("File was not but has been created.");
-				FileWriter fileWriter = new FileWriter(file);
-				fileWriter.write(xMLString);
-				fileWriter.flush();
-				fileWriter.close();
 			}
+			FileWriter fileWriter = new FileWriter(file);
+			fileWriter.write(xMLString);
+			fileWriter.flush();
+			fileWriter.close();
 		}
 		catch (IOException e)
 		{
