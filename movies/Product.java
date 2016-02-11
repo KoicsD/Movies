@@ -22,4 +22,7 @@ public abstract class Product {
 	{
 		this.person = person;
 	}
+	
+	// abstract method getInvestment():
+	public abstract long getInvestment();
 }

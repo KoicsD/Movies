@@ -50,6 +50,18 @@ public class Movie extends Product
 		this.cast = new ArrayList<Actor>(cast);  // this makes a (shallow) copy of the list (and also force a type-cast)
 	}
 	
+	// implementation of abstract method getInvestment:
+	@Override
+	public long getInvestment()
+	{
+		long investment = 0;
+		for (Actor actor: cast)
+		{
+			investment += actor.getSalary();
+		}
+		return investment;
+	}
+	
 	// to-XML converter:
 	public String toXML()
 	{
