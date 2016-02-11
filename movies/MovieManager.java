@@ -7,7 +7,7 @@ import java.io.IOException;
 
 public class MovieManager
 {
-	static final String XML_FILE_PATH = "Data/movies.xml"; 
+	private static final String XML_FILE_PATH = "Data/movies.xml"; 
 	
 	public static void main(String[] args)
 	{

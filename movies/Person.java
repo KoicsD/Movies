@@ -7,10 +7,10 @@ public class Person
 	public static enum Gender {MALE, FEMALE}
 	
 	// instance variables:
-	String firstName;
-	String lastName;
-	Gender gender;
-	int salary;
+	protected String firstName;
+	protected String lastName;
+	protected Gender gender;
+	protected int salary;
 	
 	// getter functions:
 	public String getFirstName() { return this.firstName; }

@@ -18,11 +18,11 @@ public class Movie
 	}
 	
 	// instance variables:
-	String title;
-	Genre genre;
-	long duration;
-	double rate;
-	ArrayList<Actor> cast;
+	protected String title;
+	protected Genre genre;
+	protected long duration;
+	protected double rate;
+	protected ArrayList<Actor> cast;
 	
 	// getter functions:
 	public String getTitle() { return this.title; }

@@ -3,8 +3,8 @@ package movies;
 
 public class Actor extends Person {
 	// instance variables:
-	boolean hasOscar;
-	boolean hasGoldenGlobe;
+	protected boolean hasOscar;
+	protected boolean hasGoldenGlobe;
 	
 	// getters:
 	public boolean isHasOscar() { return this.hasOscar; }
