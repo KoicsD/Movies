@@ -18,7 +18,7 @@ public class MovieManager
 		Person diCaprio = mentorsFavouriteActors[0];
 		diCaprio.setFirstName("Leonardo");
 		diCaprio.setLastName("Di Caprio");
-		diCaprio.setGender(Gender.MALE);
+		diCaprio.setGender(Person.Gender.MALE);
 		diCaprio.setHasOscar(false);
 		diCaprio.setHasGoldenGlobe(true);
 		
@@ -26,7 +26,7 @@ public class MovieManager
 		Person winslet = mentorsFavouriteActors[1];
 		winslet.setFirstName("Kate");
 		winslet.setLastName("Winslet");
-		winslet.setGender(Gender.FEMALE);
+		winslet.setGender(Person.Gender.FEMALE);
 		winslet.setHasOscar(true);
 		winslet.setHasGoldenGlobe(true);
 		
@@ -34,7 +34,7 @@ public class MovieManager
 		Person reeves = mentorsFavouriteActors[2];
 		reeves.setFirstName("Keanu");
 		reeves.setLastName("Reeves");
-		reeves.setGender(Gender.MALE);
+		reeves.setGender(Person.Gender.MALE);
 		reeves.setHasOscar(false);
 		reeves.setHasGoldenGlobe(false);
 		
@@ -42,7 +42,7 @@ public class MovieManager
 		Person moss = mentorsFavouriteActors[3];
 		moss.setFirstName("Carrie-Anne");
 		moss.setLastName("Moss");
-		moss.setGender(Gender.FEMALE);
+		moss.setGender(Person.Gender.FEMALE);
 		moss.setHasOscar(false);
 		moss.setHasGoldenGlobe(false);
 		
@@ -50,7 +50,7 @@ public class MovieManager
 		Person cotillard = mentorsFavouriteActors[4];
 		cotillard.setFirstName("Marion");
 		cotillard.setLastName("Cotillard");
-		cotillard.setGender(Gender.FEMALE);
+		cotillard.setGender(Person.Gender.FEMALE);
 		cotillard.setHasOscar(true);
 		cotillard.setHasGoldenGlobe(true);
 		
@@ -61,7 +61,7 @@ public class MovieManager
 		mentorsFavouriteMovies.add(new Movie());
 		Movie titanic = mentorsFavouriteMovies.get(0);
 		titanic.setTitle("Titanic");
-		titanic.setGenre(Genre.ROMANTIC);
+		titanic.setGenre(Movie.Genre.ROMANTIC);
 		titanic.setDuration(200);
 		titanic.setRate(4.8);
 		cast.add(diCaprio);
@@ -73,7 +73,7 @@ public class MovieManager
 		mentorsFavouriteMovies.add(new Movie());
 		Movie theMatrix = mentorsFavouriteMovies.get(1);
 		theMatrix.setTitle("The Matrix");
-		theMatrix.setGenre(Genre.SCI_FI);
+		theMatrix.setGenre(Movie.Genre.SCI_FI);
 		theMatrix.setDuration(140);
 		theMatrix.setRate(5.0);
 		cast.add(reeves);
@@ -85,7 +85,7 @@ public class MovieManager
 		mentorsFavouriteMovies.add(new Movie());
 		Movie inception = mentorsFavouriteMovies.get(2);
 		inception.setTitle("Inception");
-		inception.setGenre(Genre.SCI_FI);
+		inception.setGenre(Movie.Genre.SCI_FI);
 		inception.setDuration(160);
 		inception.setRate(5.0);
 		cast.add(cotillard);

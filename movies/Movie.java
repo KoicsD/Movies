@@ -3,20 +3,20 @@ import java.util.List;
 import java.util.ArrayList;
 
 
-enum Genre
-{
-	ACTION,
-	THRILLER,
-	HORROR,
-	SCI_FI,
-	ROMANTIC,
-	COMEDY,
-	DRAMA
-}
-
-
 public class Movie
 {
+	// possible genres as enumeration:
+	public static enum Genre
+	{
+		ACTION,
+		THRILLER,
+		HORROR,
+		SCI_FI,
+		ROMANTIC,
+		COMEDY,
+		DRAMA
+	}
+	
 	// instance variables:
 	String title;
 	Genre genre;

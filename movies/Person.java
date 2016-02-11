@@ -1,9 +1,11 @@
 package movies;
-enum Gender {MALE, FEMALE}
 
 
 public class Person
 {
+	// genders as enumeration:
+	public static enum Gender {MALE, FEMALE}
+	
 	// instance variables:
 	String firstName;
 	String lastName;
