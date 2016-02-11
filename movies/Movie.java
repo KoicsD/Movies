@@ -3,7 +3,7 @@ import java.util.List;
 import java.util.ArrayList;
 
 
-public class Movie extends Product
+public class Movie extends Product implements Buyable
 {
 	// possible genres as enumeration:
 	public static enum Genre
@@ -22,12 +22,14 @@ public class Movie extends Product
 	protected long duration;
 	protected double rate;
 	protected ArrayList<Actor> cast;
+	protected int price;
 	
 	// getter functions:
 	public Genre getGenre() { return this.genre; }
 	public long getDuration() { return this.duration; }
 	public double getRate() { return this.rate; }
 	public ArrayList<Actor> getCast() { return this.cast; }
+	public int getPrice() { return this.price; }
 	
 	// setter functions:
 	public void setGenre(Genre genre)
@@ -48,6 +50,11 @@ public class Movie extends Product
 	public void setCast(List<Actor> cast)
 	{
 		this.cast = new ArrayList<Actor>(cast);  // this makes a (shallow) copy of the list (and also force a type-cast)
+	}
+	
+	public void setPrice(int price)
+	{
+		this.price = price;
 	}
 	
 	// implementation of abstract method getInvestment:
