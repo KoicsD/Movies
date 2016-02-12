@@ -7,6 +7,11 @@ public abstract class Product {
 	String title;
 	Person person;
 	
+	public Product()
+	{
+		this.id = IdGenerator.generate(this);
+	}
+	
 	// getters:
 	public String getTitle() { return this.title; }
 	public Person getPerson() { return this.person; }
