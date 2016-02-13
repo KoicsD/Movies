@@ -24,6 +24,12 @@ public class Movie extends Product implements Buyable
 	protected ArrayList<Actor> cast;
 	protected int price;
 	
+	// constructor:
+	public Movie(String title, Person person)
+	{
+		super(title, person);
+	}
+	
 	// getter functions:
 	public Genre getGenre() { return this.genre; }
 	public long getDuration() { return this.duration; }

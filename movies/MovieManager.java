@@ -58,9 +58,8 @@ public class MovieManager
 		ArrayList<Movie> mentorsFavouriteMovies = new ArrayList<Movie>(3);
 		List<Actor> cast = new ArrayList<Actor>();
 		
-		mentorsFavouriteMovies.add(new Movie());
+		mentorsFavouriteMovies.add(new Movie("Titanic", new Person()));
 		Movie titanic = mentorsFavouriteMovies.get(0);
-		titanic.setTitle("Titanic");
 		titanic.setGenre(Movie.Genre.ROMANTIC);
 		titanic.setDuration(200);
 		titanic.setRate(4.8);
@@ -70,9 +69,8 @@ public class MovieManager
 		
 		cast.clear();
 		
-		mentorsFavouriteMovies.add(new Movie());
+		mentorsFavouriteMovies.add(new Movie("The Matrix", new Person()));
 		Movie theMatrix = mentorsFavouriteMovies.get(1);
-		theMatrix.setTitle("The Matrix");
 		theMatrix.setGenre(Movie.Genre.SCI_FI);
 		theMatrix.setDuration(140);
 		theMatrix.setRate(5.0);
@@ -82,9 +80,8 @@ public class MovieManager
 		
 		cast.clear();
 		
-		mentorsFavouriteMovies.add(new Movie());
+		mentorsFavouriteMovies.add(new Movie("Inception", new Person()));
 		Movie inception = mentorsFavouriteMovies.get(2);
-		inception.setTitle("Inception");
 		inception.setGenre(Movie.Genre.SCI_FI);
 		inception.setDuration(160);
 		inception.setRate(5.0);

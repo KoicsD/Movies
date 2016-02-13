@@ -7,9 +7,12 @@ public abstract class Product {
 	String title;
 	Person person;
 	
-	public Product()
+	// constructor:
+	public Product(String title, Person person)
 	{
 		this.id = IdGenerator.generate(this);
+		this.title = title;
+		this.person = person;
 	}
 	
 	// getters:
@@ -18,6 +21,7 @@ public abstract class Product {
 	
 	// setters:
 	// -- trouble with task description: do I have to define them or should I use something else?
+	/* -- I use something else: constructor
 	public void setTitle(String title)
 	{
 		this.title = title;
@@ -27,6 +31,7 @@ public abstract class Product {
 	{
 		this.person = person;
 	}
+	*/
 	
 	// abstract method getInvestment():
 	public abstract long getInvestment();

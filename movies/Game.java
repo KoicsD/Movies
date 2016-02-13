@@ -10,6 +10,12 @@ public class Game extends Product implements Buyable
 	ArrayList<Person> staff;
 	int price;
 	
+	// constructor:
+	public Game(String title, Person person)
+	{
+		super(title, person);
+	}
+	
 	// getters:
 	public boolean isPreordered() { return this.preOrdered; }
 	public List<Person> getStaff() { return this.staff; }

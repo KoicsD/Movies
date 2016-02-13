@@ -6,6 +6,12 @@ public class Book extends Product
 	// instance variable
 	protected Person author;
 	
+	// constructor:
+	public Book(String title, Person person)
+	{
+		super(title, person);
+	}
+	
 	// getter:
 	public Person getAuthor() { return this.author; }
 	
