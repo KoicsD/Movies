@@ -67,7 +67,7 @@ public class MovieManager
 		cast.add(winslet);
 		titanic.setCast(cast);
 		
-		cast.clear();
+		cast.clear(); // I can only do this because Movie.setCast invokes operator 'new'
 		
 		mentorsFavouriteMovies.add(new Movie("The Matrix", new Person()));
 		Movie theMatrix = mentorsFavouriteMovies.get(1);
