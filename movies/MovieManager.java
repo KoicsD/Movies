@@ -1,15 +1,21 @@
 package movies;
+
 import java.util.List;
 import java.util.ArrayList;
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
+
 
 public class MovieManager
 {
 	private static final String XML_FILE_PATH = "Data/movies.xml"; 
 	
-	public static void main(String[] args)
+	public static void printTitles(String[] titles)
+	{
+		System.out.println("The titles of movies:");
+		for (String title: titles)
+			System.out.println(title);
+	}
+	
+	public static List<Movie> generateDemoData()
 	{
 		// collecting mentors:
 		Person[] mentors = new Person[3];
@@ -118,42 +124,14 @@ public class MovieManager
 		cast.add(diCaprio);
 		inception.setCast(cast);
 		
-		// getting and printing titles of movies:
-		String[] titles = Tools.getMovieTitles(mentorsFavouriteMovies);
-		System.out.println("The titles of movies:");
-		for(String title: titles)
-		{
-			System.out.println(title);
-		}
-		
-		// getting XML-notation string of the movies and writing them into file:
-		String xMLString = "";
-		for(Movie movie: mentorsFavouriteMovies)
-		{
-			xMLString += movie.toXMLString();
-		}
-		xMLString = Tools.toXMLTag("movies", xMLString);
-		File file = new File(XML_FILE_PATH);
-		try
-		{
-			if (file.createNewFile())
-			{
-				System.out.println("File was not but has been created.");
-			}
-			FileWriter fileWriter = new FileWriter(file);
-			fileWriter.write(xMLString);
-			fileWriter.flush();
-			fileWriter.close();
-		}
-		catch (IOException e)
-		{
-			System.out.println("An IOEexception was thrown when creating new file:");
-			System.out.println(e.getMessage());
-		}
-		catch (SecurityException e)
-		{
-			System.out.println("A SecurityEexception was thrown when creating new file:");
-			System.out.println(e.getMessage());
-		}
+		return mentorsFavouriteMovies;
+	}
+	
+	public static void main(String[] args)
+	{
+		List<Movie> demoMovies = generateDemoData();
+		String[] titles = Tools.getMovieTitles(demoMovies);
+		printTitles(titles);
+		Tools.tryToWriteXMLFile(new ArrayList<XMLCompatible>(demoMovies), XML_FILE_PATH, "movies");
 	}
 }
