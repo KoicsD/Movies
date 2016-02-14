@@ -1,5 +1,9 @@
 # Welcome to my first Java-project!
 
+Note:
+Although the sample data (xml) of this repository is based on real persons and products,
+not all the data fits the truth.
+
 On **Week9A** at [*CodeCool*](https://www.codecool.com/) we had to get acquanted
 with [*Java*](https://en.wikipedia.org/wiki/Java_(programming_language))
 and [*XML*](https://en.wikipedia.org/wiki/XML).
