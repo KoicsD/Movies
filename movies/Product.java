@@ -16,6 +16,7 @@ public abstract class Product {
 	}
 	
 	// getters:
+	public String getId() { return this.id; }
 	public String getTitle() { return this.title; }
 	public Person getPerson() { return this.person; }
 	
