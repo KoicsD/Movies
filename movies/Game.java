@@ -55,4 +55,26 @@ public class Game extends Product implements Buyable
 			investment += person.getSalary();
 		return investment;
 	}
+	
+	// implementing to-XML converter:
+	@Override
+	public String toXMLString()
+	{
+		String id = Tools.toXMLTag("id", getId());
+		String lender = Tools.toXMLTag("lender", this.lender.toXMLString());
+		String title = Tools.toXMLTag("title", this.title);
+		String preOrdered = Tools.toXMLTag("preOrdered", String.valueOf(this.preOrdered));
+		String staff = Tools.toXMLTag("staff", personsToXML(this.staff));
+		return Tools.toXMLTag("Movie", id + lender + title + preOrdered + staff);
+	}
+	
+	private static String personsToXML(List<Person> staff)
+	{
+		String retStr = "";
+		for (Person developer: staff)
+		{
+			retStr += developer.toXMLString();
+		}
+		return retStr;
+	}
 }

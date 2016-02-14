@@ -1,7 +1,7 @@
 package movies;
 
 
-public class Person
+public class Person implements XMLCompatible
 {
 	// genders as enumeration:
 	public static enum Gender {MALE, FEMALE}
@@ -40,6 +40,7 @@ public class Person
 	}
 	
 	// to-XML converter:
+	@Override
 		public String toXMLString()
 		{
 			String firstName = Tools.toXMLTag("firstName", this.firstName);

@@ -76,6 +76,7 @@ public class Movie extends Product implements Buyable
 	}
 	
 	// to-XML converter:
+	@Override
 	public String toXMLString()
 	{
 		String id = Tools.toXMLTag("id", getId());

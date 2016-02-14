@@ -24,5 +24,14 @@ public class Book extends Product
 	// overriding method getInvestment:
 	@Override
 	public long getInvestment() { return this.author.getSalary(); }
-
+	
+	// implementing to-XML converter:
+	public String toXMLString()
+	{
+		String id = Tools.toXMLTag("id", getId());
+		String lender = Tools.toXMLTag("lender", this.lender.toXMLString());
+		String title = Tools.toXMLTag("title", this.title);
+		String author = Tools.toXMLTag("author", this.author.toXMLString());
+		return Tools.toXMLTag("Movie", id + lender + title + author);
+	}
 }

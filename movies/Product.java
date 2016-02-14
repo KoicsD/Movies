@@ -1,7 +1,7 @@
 package movies;
 
 
-public abstract class Product {
+public abstract class Product implements XMLCompatible {
 	// instance variables:
 	private String id;
 	protected String title;
