@@ -76,7 +76,7 @@ public class MovieManager
 		moss.setFirstName("Carrie-Anne");
 		moss.setLastName("Moss");
 		moss.setGender(Actor.Gender.FEMALE);
-		moss.setSalary(800);
+		moss.setSalary(1200);
 		moss.setHasOscar(false);
 		moss.setHasGoldenGlobe(false);
 		

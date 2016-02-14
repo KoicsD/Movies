@@ -52,7 +52,7 @@ public class RentManager {
 		moss.setGender(Actor.Gender.FEMALE);
 		moss.setHasOscar(false);
 		moss.setHasGoldenGlobe(false);
-		moss.setSalary(800);
+		moss.setSalary(1200);
 		cast.add(moss);
 		matrix.setCast(cast);
 		matrix.setDuration(136);
@@ -66,6 +66,7 @@ public class RentManager {
 		customer.setFirstName("Anna");
 		customer.setLastName("Gerinczy");
 		customer.setGender(Person.Gender.FEMALE);
+		customer.setSalary(1000);
 		wolverine.setGenre(Movie.Genre.SCI_FI);
 		cast = new ArrayList<Actor>();
 		Actor jackman = new Actor();
