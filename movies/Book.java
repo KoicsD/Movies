@@ -32,6 +32,6 @@ public class Book extends Product
 		String lender = Tools.toXMLTag("lender", this.lender.toXMLString());
 		String title = Tools.toXMLTag("title", this.title);
 		String author = Tools.toXMLTag("author", this.author.toXMLString());
-		return Tools.toXMLTag("Movie", id + lender + title + author);
+		return Tools.toXMLTag("Book", id + lender + title + author);
 	}
 }

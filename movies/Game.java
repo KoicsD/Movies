@@ -65,7 +65,7 @@ public class Game extends Product implements Buyable
 		String title = Tools.toXMLTag("title", this.title);
 		String preOrdered = Tools.toXMLTag("preOrdered", String.valueOf(this.preOrdered));
 		String staff = Tools.toXMLTag("staff", personsToXML(this.staff));
-		return Tools.toXMLTag("Movie", id + lender + title + preOrdered + staff);
+		return Tools.toXMLTag("Game", id + lender + title + preOrdered + staff);
 	}
 	
 	private static String personsToXML(List<Person> staff)
