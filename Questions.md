@@ -27,3 +27,10 @@ Hey, Mentors:
   We should consider adding a new subclass *Developer* to *Person*.
   (Or even a *Customer* class, making *Person* abstract.
   Finally, I simply changed the name *person* to *lender* in class *Product*.)
+
+One more thing:
+* How could I change *Tools.getMovieTitles(List<Movie>)*
+  to a polymorphic *Tools.getProductTitles(List<Product>)*
+  or *Tools.getProductTitles(List<Buyable>)* function
+  that can collect the titles from any kinds of list of Products?
+  Where is the limit when overloading a function with polymorphic parameter types?
