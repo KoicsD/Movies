@@ -36,6 +36,7 @@ public class RentManager {
 		customer.setFirstName("Ádám");
 		customer.setLastName("Végh");
 		customer.setGender(Person.Gender.MALE);
+		matrix.setGenre(Movie.Genre.SCI_FI);
 		List<Actor> cast = new ArrayList<Actor>();
 		Actor reeves = new Actor();
 		reeves.setFirstName("Keanu");
@@ -65,6 +66,7 @@ public class RentManager {
 		customer.setFirstName("Anna");
 		customer.setLastName("Gerinczy");
 		customer.setGender(Person.Gender.FEMALE);
+		wolverine.setGenre(Movie.Genre.SCI_FI);
 		cast = new ArrayList<Actor>();
 		Actor jackman = new Actor();
 		jackman.setFirstName("Hugh");
