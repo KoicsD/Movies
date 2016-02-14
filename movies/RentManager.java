@@ -18,14 +18,17 @@ public class RentManager {
 	{
 		for (Product product: products)
 		{
-			System.out.println(product.getInvestment());
+			System.out.println("Id: " + product.getId());
+			System.out.println("\tTitle: " + product.getTitle());
+			System.out.println("\tRender: " + product.getPerson().getFirstName() + " " + product.getPerson().getLastName());
+			System.out.println("\tInvestment: " + product.getInvestment());
 		}
 	}
 	
 	public static List<Product> generateDemoData()
 	{
 		List<Product> products = new ArrayList<Product>();
-		// demo data dumper code comes here
+		// data dumper code comes here
 		return products;
 	}
 	
@@ -33,5 +36,4 @@ public class RentManager {
 		List<Product> demoProducts = generateDemoData();
 		printInvestments(demoProducts);
 	}
-
 }
