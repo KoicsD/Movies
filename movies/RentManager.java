@@ -53,6 +53,8 @@ public class RentManager {
 		moss.setSalary(800);
 		cast.add(moss);
 		matrix.setCast(cast);
+		matrix.setDuration(136);
+		matrix.setRate(8.7);
 		matrix.setPrice(10);
 		products.add(matrix);
 		
@@ -87,6 +89,8 @@ public class RentManager {
 		fukushima.setHasOscar(false);
 		fukushima.setHasOscar(false);
 		wolverine.setCast(cast);
+		wolverine.setDuration(126);
+		wolverine.setRate(6.7);
 		wolverine.setPrice(11);
 		products.add(wolverine);
 		
