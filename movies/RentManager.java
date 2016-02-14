@@ -5,6 +5,7 @@ import java.util.List;
 
 
 public class RentManager {
+	private static final String XML_FILE_PATH = "Data/products.xml";
 
 	public static int summarizeIncome(List<Buyable> products)
 	{
@@ -166,5 +167,6 @@ public class RentManager {
 	public static void main(String[] args) {
 		List<Product> demoProducts = generateDemoData();
 		printInvestments(demoProducts);
+		Tools.tryToWriteXMLFile(new ArrayList<XMLCompatible>(demoProducts), XML_FILE_PATH, "products");
 	}
 }
