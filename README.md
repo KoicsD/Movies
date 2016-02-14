@@ -1,8 +1,8 @@
-# Welcome to my first Java-project!
-
 Note:
 Although the sample data (xml) of this repository is based on real persons and products,
 not all the data fits the truth.
+
+# Welcome to my first Java-project!
 
 On **Week9A** at [*CodeCool*](https://www.codecool.com/) we had to get acquanted
 with [*Java*](https://en.wikipedia.org/wiki/Java_(programming_language))
@@ -16,8 +16,8 @@ and a *Tools* class also helps this task.
 
 [Task description can be found here!](Description.md)
 
-Now it's two weeks later (**Week10A**).
-Our new task is to extend our work and create *movies v2.0*.
+Two weeks later, on **Week10A**
+our task was to extend our work and create *movies v2.0*.
 The new modell is about a store where you can rend [*Product*](movies/Product.java)s
 (ie. [*Movie*](movies/Movie.java)s, *Game*s and *Book*s)
 but only *Game*s and [*Movie*](movies/Movie.java)s are *Buyable*.
