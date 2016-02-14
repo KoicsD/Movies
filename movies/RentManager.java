@@ -20,7 +20,7 @@ public class RentManager {
 		{
 			System.out.println("Id: " + product.getId());
 			System.out.println("\tTitle: " + product.getTitle());
-			System.out.println("\tRender: " + product.getPerson().getFirstName() + " " + product.getPerson().getLastName());
+			System.out.println("\tRender: " + product.getLender().getFirstName() + " " + product.getLender().getLastName());
 			System.out.println("\tInvestment: " + product.getInvestment());
 		}
 	}
@@ -31,7 +31,7 @@ public class RentManager {
 
 		// movie Matrix
 		Movie matrix = new Movie("The Matrix", new Person());
-		Person customer = matrix.getPerson();
+		Person customer = matrix.getLender();
 		customer.setFirstName("Ádám");
 		customer.setLastName("Végh");
 		customer.setGender(Person.Gender.MALE);
@@ -60,7 +60,7 @@ public class RentManager {
 		
 		// movie Wolverine
 		Movie wolverine = new Movie("Wolverine", new Person());
-		customer = wolverine.getPerson();
+		customer = wolverine.getLender();
 		customer.setFirstName("Anna");
 		customer.setLastName("Gerinczy");
 		customer.setGender(Person.Gender.FEMALE);
@@ -95,7 +95,7 @@ public class RentManager {
 		products.add(wolverine);
 		
 		// book Java
-		Book bJava = new Book("Java", matrix.getPerson());
+		Book bJava = new Book("Java", matrix.getLender());
 		Person author = new Person();
 		author.setFirstName("Bert");
 		author.setLastName("Bates");
@@ -105,7 +105,7 @@ public class RentManager {
 		products.add(bJava);
 		
 		// book Fizika
-		Book fizika = new Book("A fizika kultúrtörténete", bJava.getPerson());
+		Book fizika = new Book("A fizika kultúrtörténete", bJava.getLender());
 		author = new Person();
 		author.setFirstName("Károly");
 		author.setLastName("Simonyi");
@@ -116,7 +116,7 @@ public class RentManager {
 		
 		// game Tomb Raider
 		Game tombRaider = new Game("Tomb Raider", new Person());
-		customer = tombRaider.getPerson();
+		customer = tombRaider.getLender();
 		customer.setFirstName("Lukács");
 		customer.setLastName("Zsóri");
 		customer.setGender(Person.Gender.MALE);
@@ -139,7 +139,7 @@ public class RentManager {
 		
 		// game GTA San Andreas
 		Game gtaSA = new Game("Grand Theft Auto San Andreas", new Person());
-		customer = gtaSA.getPerson();
+		customer = gtaSA.getLender();
 		customer.setFirstName("Marcell");
 		customer.setLastName("Koics");
 		customer.setGender(Person.Gender.MALE);

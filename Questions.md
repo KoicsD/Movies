@@ -26,4 +26,4 @@ Hey, Mentors:
   Is it not illogical to think of a customer in the same way as a game-developer (or an actor)?  
   We should consider adding a new subclass *Developer* to *Person*.
   (Or even a *Customer* class, making *Person* abstract.
-  But maybe it would be enough to rename *person* to *customer* or *lender* in class *Product*.)
+  Finally, I simply changed the name *person* to *lender* in class *Product*.)

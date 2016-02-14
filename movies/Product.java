@@ -5,20 +5,20 @@ public abstract class Product {
 	// instance variables:
 	private String id;
 	protected String title;
-	protected Person person;
+	protected Person lender;
 	
 	// constructor:
-	public Product(String title, Person person)
+	public Product(String title, Person lender)
 	{
 		this.id = IdGenerator.generate(this);
 		this.title = title;
-		this.person = person;
+		this.lender = lender;
 	}
 	
 	// getters:
 	public String getId() { return this.id; }
 	public String getTitle() { return this.title; }
-	public Person getPerson() { return this.person; }
+	public Person getLender() { return this.lender; }
 	
 	// setters:
 	// -- trouble with task description: do I have to define them or should I use something else?
