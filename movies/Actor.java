@@ -22,13 +22,13 @@ public class Actor extends Person {
 	}
 	
 	// to-XML converter:
-	public String toXML()
+	public String toXMLString()
 	{
-		String firstName = Tools.toXML("firstName", this.firstName);
-		String lastName = Tools.toXML("lastName", this.lastName);
-		String gender = Tools.toXML("gender", this.gender.toString());
-		String hasOscar = Tools.toXML("hasOscar", Boolean.toString(this.hasOscar));
-		String hasGoldenGlobe = Tools.toXML("hasGoldenGlobe", Boolean.toString(this.hasGoldenGlobe));
-		return Tools.toXML("Actor", firstName + lastName + gender + hasOscar + hasGoldenGlobe);
+		String firstName = Tools.toXMLTag("firstName", this.firstName);
+		String lastName = Tools.toXMLTag("lastName", this.lastName);
+		String gender = Tools.toXMLTag("gender", this.gender.toString());
+		String hasOscar = Tools.toXMLTag("hasOscar", Boolean.toString(this.hasOscar));
+		String hasGoldenGlobe = Tools.toXMLTag("hasGoldenGlobe", Boolean.toString(this.hasGoldenGlobe));
+		return Tools.toXMLTag("Actor", firstName + lastName + gender + hasOscar + hasGoldenGlobe);
 	}
 }

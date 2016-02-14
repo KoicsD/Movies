@@ -101,9 +101,9 @@ public class MovieManager
 		String xMLString = "";
 		for(Movie movie: mentorsFavouriteMovies)
 		{
-			xMLString += movie.toXML();
+			xMLString += movie.toXMLString();
 		}
-		xMLString = Tools.toXML("movies", xMLString);
+		xMLString = Tools.toXMLTag("movies", xMLString);
 		File file = new File(XML_FILE_PATH);
 		try
 		{
