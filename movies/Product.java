@@ -3,9 +3,9 @@ package movies;
 
 public abstract class Product {
 	// instance variables:
-	String id;
-	String title;
-	Person person;
+	private String id;
+	protected String title;
+	protected Person person;
 	
 	// constructor:
 	public Product(String title, Person person)
