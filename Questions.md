@@ -12,7 +12,7 @@
   can be annotated as *private*, *protected* or even *static*,
   as well as any other members of a class
 
-Hey, Mentors:
+Dear Mentors:
 * On your UML-diagram there is no setter for *Product.title* and *Product.person*.  
   Should I use constructor instead of setters to set them? (Finally, I did use constructor.)
 * Products have id but there is no getter on your diagram to access it.  
