@@ -78,12 +78,14 @@ public class Movie extends Product implements Buyable
 	// to-XML converter:
 	public String toXMLString()
 	{
+		String id = Tools.toXMLTag("id", getId());
+		String lender = Tools.toXMLTag("lender", this.lender.toXMLString());
 		String title = Tools.toXMLTag("title", this.title);
 		String genre = Tools.toXMLTag("genre", this.genre.toString());
 		String duration = Tools.toXMLTag("duration", Long.toString(this.duration));
 		String rate = Tools.toXMLTag("rate", Double.toString(this.rate));
 		String cast = Tools.toXMLTag("cast", personsToXML(this.cast));
-		return Tools.toXMLTag("Movie", title + genre + duration + rate + cast);
+		return Tools.toXMLTag("Movie", id + lender + title + genre + duration + rate + cast);
 	}
 	
 	private static String personsToXML(List<Actor> actors)

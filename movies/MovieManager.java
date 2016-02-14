@@ -11,6 +11,30 @@ public class MovieManager
 	
 	public static void main(String[] args)
 	{
+		// collecting mentors:
+		Person[] mentors = new Person[3];
+		
+		mentors[0] = new Person();
+		Person ngAtesz = mentors[0];
+		ngAtesz.setFirstName("Attila");
+		ngAtesz.setLastName("Molnár");
+		ngAtesz.setGender(Person.Gender.MALE);
+		ngAtesz.setSalary(1500); // USD
+		
+		mentors[1] = new Person();
+		Person ngPakko = mentors[1];
+		ngPakko.setFirstName("Pál");
+		ngPakko.setLastName("Monoczky");
+		ngPakko.setGender(Person.Gender.MALE);
+		ngPakko.setSalary(1500); // USD
+		
+		mentors[2] = new Person();
+		Person szody = mentors[2];
+		szody.setFirstName("Sándor");
+		szody.setLastName("Szodoray");
+		szody.setGender(Person.Gender.MALE);
+		szody.setSalary(1500); // USD
+		
 		// collecting actors:
 		Actor[] mentorsFavouriteActors = new Actor[5];
 		
@@ -19,6 +43,7 @@ public class MovieManager
 		diCaprio.setFirstName("Leonardo");
 		diCaprio.setLastName("Di Caprio");
 		diCaprio.setGender(Actor.Gender.MALE);
+		diCaprio.setSalary(5000);
 		diCaprio.setHasOscar(false);
 		diCaprio.setHasGoldenGlobe(true);
 		
@@ -27,6 +52,7 @@ public class MovieManager
 		winslet.setFirstName("Kate");
 		winslet.setLastName("Winslet");
 		winslet.setGender(Actor.Gender.FEMALE);
+		winslet.setSalary(4000);
 		winslet.setHasOscar(true);
 		winslet.setHasGoldenGlobe(true);
 		
@@ -35,6 +61,7 @@ public class MovieManager
 		reeves.setFirstName("Keanu");
 		reeves.setLastName("Reeves");
 		reeves.setGender(Actor.Gender.MALE);
+		reeves.setSalary(5000);
 		reeves.setHasOscar(false);
 		reeves.setHasGoldenGlobe(false);
 		
@@ -43,6 +70,7 @@ public class MovieManager
 		moss.setFirstName("Carrie-Anne");
 		moss.setLastName("Moss");
 		moss.setGender(Actor.Gender.FEMALE);
+		moss.setSalary(800);
 		moss.setHasOscar(false);
 		moss.setHasGoldenGlobe(false);
 		
@@ -51,6 +79,7 @@ public class MovieManager
 		cotillard.setFirstName("Marion");
 		cotillard.setLastName("Cotillard");
 		cotillard.setGender(Actor.Gender.FEMALE);
+		cotillard.setSalary(6200);
 		cotillard.setHasOscar(true);
 		cotillard.setHasGoldenGlobe(true);
 		
@@ -58,7 +87,7 @@ public class MovieManager
 		ArrayList<Movie> mentorsFavouriteMovies = new ArrayList<Movie>(3);
 		List<Actor> cast = new ArrayList<Actor>();
 		
-		mentorsFavouriteMovies.add(new Movie("Titanic", new Person()));
+		mentorsFavouriteMovies.add(new Movie("Titanic", ngPakko));
 		Movie titanic = mentorsFavouriteMovies.get(0);
 		titanic.setGenre(Movie.Genre.ROMANTIC);
 		titanic.setDuration(200);
@@ -69,7 +98,7 @@ public class MovieManager
 		
 		cast.clear(); // I can only do this because Movie.setCast invokes operator 'new'
 		
-		mentorsFavouriteMovies.add(new Movie("The Matrix", new Person()));
+		mentorsFavouriteMovies.add(new Movie("The Matrix", ngAtesz));
 		Movie theMatrix = mentorsFavouriteMovies.get(1);
 		theMatrix.setGenre(Movie.Genre.SCI_FI);
 		theMatrix.setDuration(140);
@@ -80,7 +109,7 @@ public class MovieManager
 		
 		cast.clear();
 		
-		mentorsFavouriteMovies.add(new Movie("Inception", new Person()));
+		mentorsFavouriteMovies.add(new Movie("Inception", szody));
 		Movie inception = mentorsFavouriteMovies.get(2);
 		inception.setGenre(Movie.Genre.SCI_FI);
 		inception.setDuration(160);

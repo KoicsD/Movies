@@ -38,4 +38,14 @@ public class Person
 	{
 		this.salary = salary;
 	}
+	
+	// to-XML converter:
+		public String toXMLString()
+		{
+			String firstName = Tools.toXMLTag("firstName", this.firstName);
+			String lastName = Tools.toXMLTag("lastName", this.lastName);
+			String gender = Tools.toXMLTag("gender", this.gender.toString());
+			String salary = Tools.toXMLTag("salary", String.valueOf(this.salary));
+			return Tools.toXMLTag("Person", firstName + lastName + gender + salary);
+		}
 }
