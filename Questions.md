@@ -22,8 +22,8 @@ Hey, Mentors:
   (And also a *getTitle* to *Buyable*.)
 * To maintain runnability of class *MovieManager*, I've moved field *hasOscar* and *hasGoldenGlobe*
   from class *Person* to a subclass, *Actor*.  
-  When we give a *person* (customer/render) to a *Product*, we can give salary.
+  When we give a *person* (customer/lender) to a *Product*, we can give salary.
   Is it not illogical to think of a customer in the same way as a game-developer (or an actor)?  
   We should consider adding a new subclass *Developer* to *Person*.
   (Or even a *Customer* class, making *Person* abstract.
-  But maybe it would be enough to rename *person* to *customer* or *render* in class *Product*.)
+  But maybe it would be enough to rename *person* to *customer* or *lender* in class *Product*.)
