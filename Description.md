@@ -113,6 +113,6 @@ Define some questions related to Java and/or XML.
 ----------
 
 tags:
-[Java](http://lms.codecool.com/Search/Tags?tag=48)
-[OOP](http://lms.codecool.com/Search/Tags?tag=16)
-[XML](http://lms.codecool.com/Search/Tags?tag=57)
+Java
+OOP
+XML
