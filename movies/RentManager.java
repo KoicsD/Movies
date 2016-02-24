@@ -21,7 +21,7 @@ public class RentManager {
 		{
 			System.out.println("Id: " + product.getId());
 			System.out.println("\tTitle: " + product.getTitle());
-			System.out.println("\tRender: " + product.getLender().getFirstName() + " " + product.getLender().getLastName());
+			System.out.println("\tLender: " + product.getLender().getFirstName() + " " + product.getLender().getLastName());
 			System.out.println("\tInvestment: " + product.getInvestment());
 		}
 	}
