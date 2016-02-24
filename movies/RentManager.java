@@ -33,8 +33,8 @@ public class RentManager {
 		// movie Matrix
 		Movie matrix = new Movie("The Matrix", new Person());
 		Person customer = matrix.getLender();
-		customer.setFirstName("Ádám");
-		customer.setLastName("Végh");
+		customer.setFirstName("Adam");
+		customer.setLastName("Vegh");
 		customer.setGender(Person.Gender.MALE);
 		matrix.setGenre(Movie.Genre.SCI_FI);
 		List<Actor> cast = new ArrayList<Actor>();
@@ -109,9 +109,9 @@ public class RentManager {
 		products.add(bJava);
 		
 		// book Fizika
-		Book fizika = new Book("A fizika kultúrtörténete", bJava.getLender());
+		Book fizika = new Book("Cultural History of Physics", bJava.getLender());
 		author = new Person();
-		author.setFirstName("Károly");
+		author.setFirstName("Charles");
 		author.setLastName("Simonyi");
 		author.setGender(Person.Gender.MALE);
 		author.setSalary(4000);
@@ -121,8 +121,8 @@ public class RentManager {
 		// game Tomb Raider
 		Game tombRaider = new Game("Tomb Raider", new Person());
 		customer = tombRaider.getLender();
-		customer.setFirstName("Lukács");
-		customer.setLastName("Zsóri");
+		customer.setFirstName("Lukacs");
+		customer.setLastName("Zsori");
 		customer.setGender(Person.Gender.MALE);
 		List<Person> staff = new ArrayList<Person>();
 		Person developer = new Person();

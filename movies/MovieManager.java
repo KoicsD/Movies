@@ -23,20 +23,20 @@ public class MovieManager
 		mentors[0] = new Person();
 		Person ngAtesz = mentors[0];
 		ngAtesz.setFirstName("Attila");
-		ngAtesz.setLastName("Molnár");
+		ngAtesz.setLastName("Molnar");
 		ngAtesz.setGender(Person.Gender.MALE);
 		ngAtesz.setSalary(1500); // USD
 		
 		mentors[1] = new Person();
 		Person ngPakko = mentors[1];
-		ngPakko.setFirstName("Pál");
+		ngPakko.setFirstName("Pal");
 		ngPakko.setLastName("Monoczky");
 		ngPakko.setGender(Person.Gender.MALE);
 		ngPakko.setSalary(1500); // USD
 		
 		mentors[2] = new Person();
 		Person szody = mentors[2];
-		szody.setFirstName("Sándor");
+		szody.setFirstName("Sandor");
 		szody.setLastName("Szodoray");
 		szody.setGender(Person.Gender.MALE);
 		szody.setSalary(1500); // USD
