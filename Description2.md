@@ -1,5 +1,4 @@
 ## Objectives of the week
-
 This week you'll step to a higher level of software development.
 You will learn about things what make an object-oriented programming language high-level.
 It's inheritance and abstraction.
@@ -9,7 +8,6 @@ It's inheritance and abstraction.
 ----------
 
 ## Init
-
 Before you start reading about the themes of this week,
 please finish your task you had on previous week,
 because this task is based on that.
@@ -53,7 +51,7 @@ Person means NOT ONLY actresses/actors in this version, so it is strongly needed
   If the product is a Game, the id should start with GAM.
   If the product is a Book, the id should start with BOO.
 * Create a RentManager class which includes the main method.
-  Create at least 2 instances of EVERY type of product and print out the investment of the current product.\
+  Create at least 2 instances of EVERY type of product and print out the investment of the current product.
   Write a method which gets a List of Buyable objects
   and returns with the total preferred income
   by summarizing the prices of the products in the parameter.
