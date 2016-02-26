@@ -93,64 +93,102 @@ and keep the original one only with a little change in its functionality.
 
 ### Structural changes
 
-As demanded by mentors, *Movie* become a subclass of an abstract *Product* class.
-Class *Book* and *Game* also appeared as subclasses.
-*Movie* and *Game* also become an implementation of a new interface, *Buyable*.
-My application also got the new main class, called *RentManager*.
+As demanded by mentors, [*Movie*](movies/Movie.java)
+                                  become a subclass of an abstract [*Product*](movies/Product.java)
+                                                                               class.
+Class [*Book*](movies/Book.java)
+               and [*Game*](movies/Game.java)
+                            also appeared as subclasses.
+[*Movie*](movies/Movie.java)
+          and [*Game*](movies/Game.java)
+                       also become an implementation of a new interface, [*Buyable*](movies/Buyable.java).
+My application also got the new main class, called [*RentManager*](movies/RentManager.java).
 
 But there were also new features that had not been on task-list:
-* We had to remove instance variable *hasOscar* and *hasGoldenGlobe* from class *Person*.
-  It would have caused problems to the old main class *MovieManager*.
-  To resolve this problem, these variables were moved to a new subclass, named *Actor*.
-  *Movie* and *MovieManager* were rebased on this new class.
+* We had to remove instance variable *hasOscar* and *hasGoldenGlobe* from class [*Person*](movies/Person.java).
+  It would have caused problems to the old main class [*MovieManager*](movies/MovieManager.java).
+  To resolve this problem, these variables were moved to a new subclass, named [*Actor*](movies/Actor.java).
+  [*Movie*](movies/Movie.java)
+            and [*MovieManager*](movies/MovieManager.java)
+                                 were rebased on this new class.
 * The other main difference is that
-  the new main class *RentManager* is also able to write the demo data it works with to an xml-file.
-  For this reason, *Book*, *Game*, *Movie*, *Person* and *Actor* all have the method *toXMLString*.
-  The declaration of this method was moved to a new interface, called *XMLCompatible*.
-  *Product*, *Buyable* and *Person* were all annotated as an implementation of this interface.
+  the new main class [*RentManager*](movies/RentManager.java)
+                                     is also able to write the demo data it works with to [an xml-file](SampleData/products.xml).
+  For this reason, [*Book*](movies/Book.java),
+                            [*Game*](movies/Game.java),
+                                     [*Movie*](movies/Movie.java),
+                                               [*Person*](movies/Person.java)
+                                                          and [*Actor*](movies/Actor.java)
+                                                                        all have the method *toXMLString*.
+  The declaration of this method was moved to a new interface, called [*XMLCompatible*](movies/XMLCompatible.java).
+  [*Product*](movies/Product.java),
+              [*Buyable*](movies/Buyable.java)
+                          and [*Person*](movies/Person.java)
+                                         were all annotated as an implementation of this interface.
 
 There were some other changes to be mentioned, as well:
-* The file-handler method moved to class *Tools*, enabling both main classes to use it.
+* The file-handler method moved to class [*Tools*](movies/Tools.java),
+                                                   enabling both main classes to use it.
 * In both of the main classes demo-data creator function was separated from *main* method,
   enabling both *main* methods to consist of few rows.
-* Field *person* in class *Product* was renamed to *lender*.
+* Field *person* in class [*Product*](movies/Product.java) was renamed to *lender*.
 
-Furthermore, note that both *Product* and *Buyable*'s got getters to access *id* and *title* fields.
+Furthermore, note that both [*Product*](movies/Product.java)
+                                        and [*Buyable*](movies/Buyable.java)'s
+                                                        got getters to access *id* and *title* fields.
 However, there are no setters neither for these fields nor for *lender*.
 All of these fields are set by constructor
 (*title* and *lender* are received as constructor parameters
-while *id* is requested from *IdGenerator* class).
+while *id* is requested from [*IdGenerator*](movies/IdGenerator.java) class).
 
 ### Entry points and output files
 
 My application has 2 entry-points.
-One of them is the original class *MovieManager* and the other is *RentManager*.
+One of them is the original class [*MovieManager*](movies/MovieManager.java)
+                                                   and the other is [*RentManager*](movies/RentManager.java).
 
-If you run *MovieManager*, it behaves almost the same way as in *v1.0*
-(ie. creates some demo *Movie*s, prints their titles to screen and saves all data to xml-file).
+If you run [*MovieManager*](movies/MovieManager.java),
+                            it behaves almost the same way as in *v1.0*
+(ie. creates some demo *Movie*s, prints their titles to screen
+and saves all data to [xml-file](SampleData/movies.xml)).
 The only differences are the following:
-* The objects on cast-list are *Actor*s instead of *Person*s.
-* Each *Actor* has a *sellary* field as well.
-* Each *Movie* has a *lender* field of type *Person* to show who has rent the *Book*.
-* These *Person*s also have their own *salary*.
+* The objects on cast-list are [*Actor*](movies/Actor.java)s
+                                         instead of [*Person*](movies/Person.java)s.
+* Each [*Actor*](movies/Actor.java)
+                 has a *sellary* field as well.
+* Each [*Movie*](movies/Movie.java)
+                 has a *lender* field of type [*Person*](movies/Person.java)
+                                                         to show who has rent the [*Book*](movies/Book.java).
+* These [*Person*](movies/Person.java)s
+                   also have their own *salary*.
 
 If you run *RentManager*, it does the followings:
 * Creates 2 instances of all kinds of products,
 * Fills them with demo data,
 * Prints the title, lender and investment of all to screen
-* Stores the data in an xml-file, namely *products.xml*.
+* Stores the data in an xml-file, namely [*products.xml*](SampleData/products.xml).
 
 ### Problems and possible developements
 
 There are 3 possible changes I would like to mention:
-* When we give a *Person* as a *lender* of a *Product*,
-  we have to handle him in the same way as in case of *Person*s in the *staff* of a *Game*
-  or in case of the *author* of a *Book*.
-  In all the above cases we have to give the *salary* of the *Person* in order to avoid nullpointers.
-  This raises the question whether we should use separate subclasses instead of *Person*,
-  such as *Writer*, *Developer* and *Customer*/*Lender*, making *Person* an abstract class.
-* The old *Tools* class has a method *getMovieTitles* which takes a *List* of *Movie*s as parameter
-  and returns the *title*s of the *Movie*s as an *array* of *String*s.
+* When we give a [*Person*](movies/Person.java)
+                            as a *lender* of a [*Product*](movies/Product.java),
+  we have to handle him in the same way as in case of [*Person*](movies/Person.java)s
+                                                                 in the *staff* of a [*Game*](movies/Game.java)
+  or in case of the *author* of a [*Book*](movies/Book.java).
+  In all the above cases we have to give the *salary* of the [*Person*](movies/Person.java)
+                                                                        in order to avoid nullpointers.
+  This raises the question whether we should use separate subclasses instead of [*Person*](movies/Person.java),
+  such as *Writer*, *Developer* and *Customer*/*Lender*, making [*Person*](movies/Person.java)
+                                                                           an abstract class.
+* The old [*Tools*](movies/Tools.java)
+                    class has a method *getMovieTitles* which takes a *List* of [*Movie*](movies/Movie.java)s
+                                                                                          as parameter
+  and returns the *title*s of the [*Movie*](movies/Movie.java)s as an *array* of *String*s.
   We could extend it to a general, polymorphic method, that can collect the *title*s of any kinds of *Product*s.
-* In our modell everything which is *Buyable* is a *Product* as well.
-  We should consider let *Buyable* be a subclass of *Product* instead of a separate interface.
+* In our modell everything which is [*Buyable*](movies/Buyable.java)
+                                                is a [*Product*](movies/Product.java)
+                                                                 as well.
+  We should consider let [*Buyable*](movies/Buyable.java)
+                                     be a subclass of [*Product*](movies/Product.java)
+                                                                  instead of a separate interface.
