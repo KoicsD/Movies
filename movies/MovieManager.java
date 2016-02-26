@@ -130,7 +130,7 @@ public class MovieManager
 	public static void main(String[] args)
 	{
 		List<Movie> demoMovies = generateDemoData();
-		String[] titles = Tools.getMovieTitles(demoMovies);
+		String[] titles = Tools.getProductTitles(new ArrayList<Product>(demoMovies));
 		printTitles(titles);
 		Tools.tryToWriteXMLFile(new ArrayList<XMLCompatible>(demoMovies), XML_FILE_PATH, "movies");
 	}

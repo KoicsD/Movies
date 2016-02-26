@@ -67,7 +67,7 @@ public class Tools
 		return moviesPerActor;
 	}
 	
-	public static String[] getMovieTitles(List<Movie> movies)
+	public static String[] getProductTitles(List<Product> movies)
 	{
 		int size = movies.size();
 		String[] titles = new String[size];

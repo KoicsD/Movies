@@ -127,11 +127,14 @@ But there were also new features that had not been on task-list:
                                          were all annotated as an implementation of this interface.
 
 There were some other changes to be mentioned, as well:
-* The file-handler method moved to class [*Tools*](movies/Tools.java),
-                                                   enabling both main classes to use it.
+* Field *person* in class [*Product*](movies/Product.java) was renamed to *lender*.
+* The file-handler method was moved to class [*Tools*](movies/Tools.java),
+                                                       enabling both main classes to use it.
 * In both of the main classes demo-data creator function was separated from *main* method,
   enabling both *main* methods to consist of few rows.
-* Field *person* in class [*Product*](movies/Product.java) was renamed to *lender*.
+* Method *getMovieTitles* in class [*Tools*](movies/Tools.java)
+  was renamed to *getProductTitles*
+  and made able to collect the *title*s of any kinds of [*Product*](movies/Product.java)s.
 
 Furthermore, note that both [*Product*](movies/Product.java)
                                         and [*Buyable*](movies/Buyable.java)'s
@@ -170,7 +173,7 @@ If you run *RentManager*, it does the followings:
 
 ### Problems and possible developements
 
-There are 3 possible changes I would like to mention:
+There are 2 possible changes I would like to mention:
 * When we give a [*Person*](movies/Person.java)
                             as a *lender* of a [*Product*](movies/Product.java),
   we have to handle him in the same way as in case of [*Person*](movies/Person.java)s
@@ -181,11 +184,6 @@ There are 3 possible changes I would like to mention:
   This raises the question whether we should use separate subclasses instead of [*Person*](movies/Person.java),
   such as *Writer*, *Developer* and *Customer*/*Lender*, making [*Person*](movies/Person.java)
                                                                            an abstract class.
-* The old [*Tools*](movies/Tools.java)
-                    class has a method *getMovieTitles* which takes a *List* of [*Movie*](movies/Movie.java)s
-                                                                                          as parameter
-  and returns the *title*s of the [*Movie*](movies/Movie.java)s as an *array* of *String*s.
-  We could extend it to a general, polymorphic method, that can collect the *title*s of any kinds of *Product*s.
 * In our modell everything which is [*Buyable*](movies/Buyable.java)
                                                 is a [*Product*](movies/Product.java)
                                                                  as well.

@@ -33,4 +33,5 @@ One more thing:
   to a polymorphic *Tools.getProductTitles(List<Product>)*
   or *Tools.getProductTitles(List<Buyable>)* function
   that can collect the titles from any kinds of list of Products?
-  Where is the limit when overloading a function with polymorphic parameter types?
+  Where is the limit when overloading a function with polymorphic parameter types?  
+  (I've renamed *getMovieTitles* to *getProductTitles* and changed its parameter type to *List* of *Products*.)
