@@ -113,6 +113,13 @@ There were some other changes to be mentioned, as well:
 * The file-handler method moved to class *Tools*, enabling both main classes to use it.
 * In both of the main classes demo-data creator function was separated from *main* method,
   enabling both *main* methods to consist of few rows.
+* Field *person* in class *Product* was renamed to *lender*.
+
+Furthermore, note that both *Product* and *Buyable*'s got getters to access *id* and *title* fields.
+However, there are no setters neither for these fields nor for *lender*.
+All of these fields are set by constructor
+(*title* and *lender* are received as constructor parameters
+while *id* is requested from *IdGenerator* class).
 
 ### Entry points and output files
 
@@ -132,3 +139,18 @@ If you run *RentManager*, it does the followings:
 * Fills them with demo data,
 * Prints the title, lender and investment of all to screen
 * Stores the data in an xml-file, namely *products.xml*.
+
+### Problems and possible developements
+
+There are 3 possible changes I would like to mention:
+* When we give a *Person* as a *lender* of a *Product*,
+  we have to handle him in the same way as in case of *Person*s in the *staff* of a *Game*
+  or in case of the *author* of a *Book*.
+  In all the above cases we have to give the *salary* of the *Person* in order to avoid nullpointers.
+  This raises the question whether we should use separate subclasses instead of *Person*,
+  such as *Writer*, *Developer* and *Customer*/*Lender*, making *Person* an abstract class.
+* The old *Tools* class has a method *getMovieTitles* which takes a *List* of *Movie*s as parameter
+  and returns the *title*s of the *Movie*s as an *array* of *String*s.
+  We could extend it to a general, polymorphic method, that can collect the *title*s of any kinds of *Product*s.
+* In our modell everything which is *Buyable* is a *Product* as well.
+  We should consider let *Buyable* be a subclass of *Product* instead of a separate interface.
