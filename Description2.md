@@ -156,7 +156,8 @@ One of them is the original class [*MovieManager*](movies/MovieManager.java)
 
 If you run [*MovieManager*](movies/MovieManager.java),
                             it behaves almost the same way as in *v1.0*
-(ie. creates some demo *Movie*s, prints their titles to screen
+(ie. creates some demo [*Movie*](movies/Movie.java)s,
+                                 prints their titles to screen
 and saves all data to [xml-file](SampleData/movies.xml)).
 The only differences are the following:
 * The objects on cast-list are [*Actor*](movies/Actor.java)s
