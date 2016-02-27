@@ -144,6 +144,10 @@ All of these fields are set by constructor
 (*title* and *lender* are received as constructor parameters
 while *id* is requested from [*IdGenerator*](movies/IdGenerator.java) class).
 
+Class hierarchy of my work can be seen below:
+
+![](SampleData/movies2_classes.png)
+
 ### Entry points and output files
 
 My application has 2 entry-points.
