@@ -26,8 +26,9 @@ Task descriptions and my conclusions can be found here:
 * [Week9A -- v1.0](Description.md)
 * [Week10A -- v2.0](Description2.md)
 
-You can find my solution in [package *movies*](movies/).  
-Please, [checkout *Week9A*](https://github.com/KoicsD/Movies/tree/Week9A) if you want to see *movies v1.0*.
+You can find my solution in [package *movies*](movies/). Please:
+* [checkout *Week9A*](https://github.com/KoicsD/Movies/tree/Week9A) if you want to see *movies v1.0*.
+* [checkout *master*](https://github.com/KoicsD/Movies/tree/master) if you want to follow my further work.
 
 In [directory *Description*](Description/) you can find
 the *UML*-diagrams and sample files provided by mentors.
