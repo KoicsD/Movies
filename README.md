@@ -16,18 +16,30 @@ and a *Tools* class also helps this task.
 
 Two weeks later, on **Week10A**
 our task was to extend our work and create *movies v2.0*.
-The new modell is about a store where you can rend [*Product*](movies/Product.java)s
-(ie. [*Movie*](movies/Movie.java)s, [*Game*](movies/Game.java)s and [*Book*](movies/Book.java)s)
-but only [*Game*](movies/Game.java)s and [*Movie*](movies/Movie.java)s are [*Buyable*](movies/Buyable.java).
-The new main class is [*RentManager*](movies/RentManager.java),
-which instantiates some [*Product*](movies/Product.java)s and prints out the investments.
+The new modell is about a store where you can rend *Product*s
+(ie. *Movie*s, *Game*s and *Book*s)
+but only *Game*s and *Movie*s are *Buyable*.
+The new main class is *RentManager*,
+which instantiates some *Product*s and prints out the investments.
+
+Now, another two weeks later, it's **Week11A**.
+Our task is to add a new main-class to our project, called *ObjectServer*,
+making our project have multiple entry-points.
+The new class has to function as a server,
+which recieves and sends [*Product*](movies/Product.java)s via [TCP/IP](https://en.wikipedia.org/wiki/Internet_protocol_suite).
+Objects recieved has to be stored in a file in serialized form.
+When *Command* *GET* arrives, objects stored in file have to be sent.
+[*RentManager*](movies/RentManager.java) has to be able to connect as a client
+to another instance of our application running in server mode.
 
 Task descriptions and my conclusions can be found here:
 * [Week9A -- v1.0](Description.md)
 * [Week10A -- v2.0](Description2.md)
+* [Week11A -- v3.0](Description3.md)
 
 You can find my solution in [package *movies*](movies/). Please:
 * [checkout *Week9A*](https://github.com/KoicsD/Movies/tree/Week9A) if you want to see *movies v1.0*.
+* [checkout *Week10A*](https://github.com/KoicsD/Movies/tree/Week10A) if you want to see *movies v2.0*.
 * [checkout *master*](https://github.com/KoicsD/Movies/tree/master) if you want to follow my further work.
 
 In [directory *Description*](Description/) you can find
