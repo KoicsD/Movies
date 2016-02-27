@@ -17,10 +17,10 @@ and a *Tools* class also helps this task.
 Two weeks later, on **Week10A**
 our task was to extend our work and create *movies v2.0*.
 The new modell is about a store where you can rend [*Product*](movies/Product.java)s
-(ie. [*Movie*](movies/Movie.java)s, *Game*s and *Book*s)
-but only *Game*s and [*Movie*](movies/Movie.java)s are *Buyable*.
-The new main class is *RentManager*,
-which instantiates some products and prints out the investments.
+(ie. [*Movie*](movies/Movie.java)s, [*Game*](movies/Game.java)s and [*Book*](movies/Book.java)s)
+but only [*Game*](movies/Game.java)s and [*Movie*](movies/Movie.java)s are [*Buyable*](movies/Buyable.java).
+The new main class is [*RentManager*](movies/RentManager.java),
+which instantiates some [*Product*](movies/Product.java)s and prints out the investments.
 
 Task descriptions and my conclusions can be found here:
 * [Week9A -- v1.0](Description.md)
