@@ -1,6 +1,8 @@
 package movies;
 
 import java.io.EOFException;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
@@ -126,12 +128,28 @@ public class ObjectServer {
 		// TODO: here to send products from a list
 	}
 	
-	private static void switchToLoadMode() {
-		// TODO: here to close objInpStreamFromFile and create objOutStreamToFile
+	private static void switchToLoadMode() throws IOException {
+		closeFile();
+		objInStreamFromFile = new ObjectInputStream(new FileInputStream(FILE_PATH));
+		mode = ServerMode.LOAD;
 	}
 	
-	private static void switchToSaveMode() {
-		// TODO: here to close objOutStreamToFile and create objInpStreamFromFile
+	private static void switchToSaveMode() throws IOException {
+		closeFile();
+		objOutStreamToFile = new ObjectOutputStream(new FileOutputStream(FILE_PATH));
+		mode = ServerMode.SAVE;
+	}
+	
+	private static void closeFile() throws IOException {
+		mode = null;
+		if (objOutStreamToFile != null) {
+			objOutStreamToFile.close();
+			objOutStreamToFile = null;
+		}
+		if (objInStreamFromFile != null) {
+			objInStreamFromFile.close();
+			objInStreamFromFile = null;
+		}
 	}
 	
 	private static void save(Product product) {
