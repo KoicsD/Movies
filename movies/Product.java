@@ -1,7 +1,8 @@
 package movies;
 
+import java.io.Serializable;
 
-public abstract class Product implements XMLCompatible {
+public abstract class Product implements XMLCompatible, Serializable {
 	// instance variables:
 	private String id;
 	protected String title;

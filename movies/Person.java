@@ -1,7 +1,8 @@
 package movies;
 
+import java.io.Serializable;
 
-public class Person implements XMLCompatible
+public class Person implements XMLCompatible, Serializable
 {
 	// genders as enumeration:
 	public static enum Gender {MALE, FEMALE}
