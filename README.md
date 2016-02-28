@@ -23,12 +23,12 @@ The new main class is *RentManager*,
 which instantiates some *Product*s and prints out the investments.
 
 Now, another two weeks later, it's **Week11A**.
-Our task is to add a new main-class to our project, called *ObjectServer*,
+Our task is to add a new main-class to our project, called [*ObjectServer*](movies/ObjectServer.java),
 making our project have multiple entry-points.
 The new class has to function as a server,
 which recieves and sends [*Product*](movies/Product.java)s via [TCP/IP](https://en.wikipedia.org/wiki/Internet_protocol_suite).
 Objects recieved has to be stored in a file in serialized form.
-When *Command* *GET* arrives, objects stored in file have to be sent.
+When [*Command*](movies/Command.java) *GET* arrives, objects stored in file have to be sent.
 [*RentManager*](movies/RentManager.java) has to be able to connect as a client
 to another instance of our application running in server mode.
 
