@@ -36,8 +36,23 @@ public class ObjectServer {
 			while (true) {
 				receive();
 			}
-		} catch (Exception e) {
-			e.printStackTrace();
+		} catch (ClassCastException e) {
+			System.err.println("ERROR: an Object cannot be casted to Product");
+			System.err.println("\tMessage: " + e.getMessage());
+		} catch (ClassNotFoundException e) {
+			System.err.println("ERROR: Class of an Object cannot be found");
+			System.err.println("\tMessage: " + e.getMessage());
+		} catch (IOException e) {
+			System.err.println("ERROR: an IOException occoured");
+			System.err.println("\tType: " + e.getClass().getName());
+			System.err.println("\tMessage: " + e.getMessage());
+		} finally {
+			try {
+				objOutStreamToClient.writeObject(Command.EXIT);
+			} catch (NullPointerException | IOException e) {
+				System.err.println("Unable to warn Client about shutdown.");
+			}
+			shutdown();
 		}
 	}
 	
@@ -46,6 +61,7 @@ public class ObjectServer {
 		connectionToClient = serverObj.accept();
 		objOutStreamToClient = new ObjectOutputStream(connectionToClient.getOutputStream());
 		objInStreamFromClient = new ObjectInputStream(connectionToClient.getInputStream());
+		objOutStreamToClient.writeObject(Command.GET);
 	}
 	
 	private static void shutdown() {
