@@ -17,16 +17,25 @@ public class RentManager {
 	private static ObjectOutputStream objOutStreamToServer = null;
 	private static ObjectInputStream objInStreamFromServer = null;
 	
-	private static void setupConnection() throws IOException {
+	private static void setupConnection() throws ClassNotFoundException, IOException {
 		connectionToServer = new Socket(IP, TCP);
 		objOutStreamToServer = new ObjectOutputStream(connectionToServer.getOutputStream());
 		objInStreamFromServer = new ObjectInputStream(connectionToServer.getInputStream());
-		Object prompt = null;
-		try {
-			prompt = objInStreamFromServer.readObject();
-		} catch (ClassNotFoundException e) {}
-		if (!(prompt instanceof Command) || !(((Command)prompt).equals(Command.GET)))
+		if (!checkIfReceives(Command.GET))
 			throw new ProtocollException("Server does not send command GET after connecting");
+	}
+	
+	private static Object safelyReadObject() throws ClassNotFoundException, IOException {
+		Object objectRead = objInStreamFromServer.readObject();
+		if (objectRead instanceof Command && ((Command)objectRead).equals(Command.EXIT))
+			throw new ServerShutdownException("Server sent Command EXIT");
+		return objectRead;
+	}
+	
+	private static boolean checkIfReceives(Command command) throws ClassNotFoundException, IOException {
+		Object prompt = null;
+		prompt = safelyReadObject();
+		return prompt instanceof Command && ((Command)prompt).equals(command);
 	}
 	
 	private static void shutdownServer() throws IOException {
@@ -55,13 +64,29 @@ public class RentManager {
 			}
 	}
 	
-	private static void sendData(List<Product> products) {
-		// TODO: here to send products to server from a list
+	private static void sendData(List<Product> products) throws IOException {
+		objOutStreamToServer.writeObject(Command.PUT);
+		for (Product product: products) {
+			objOutStreamToServer.writeObject(product);
+		}
 	}
 	
-	private static List<Product> receiveData() {
+	private static List<Product> receiveData() throws ClassCastException, ClassNotFoundException, IOException {
 		List<Product> products = new ArrayList<>();
-		// TODO: here to receive data from server to a list
+		objOutStreamToServer.writeObject(Command.GET);
+		if (!checkIfReceives(Command.PUT))
+			throw new ProtocollException("Server-Answer does not begin with Command PUT");
+		Object objectReceived;
+		while(true) {
+			objectReceived = safelyReadObject();
+			if (objectReceived instanceof Command) {
+				Command command = (Command)objectReceived;
+				if (command.equals(Command.GET)) break;
+				if (command.equals(Command.PUT))
+					throw new ProtocollException("Unexpected command PUT");
+			}
+			products.add((Product)objectReceived);
+		}
 		return products;
 	}
 
