@@ -51,7 +51,7 @@ public class ObjectServer {
 			try {
 				objOutStreamToClient.writeObject(Command.EXIT);
 			} catch (NullPointerException | IOException e) {
-				System.err.println("Unable to warn Client about shutdown.");
+				System.err.println("Unable to warn Client about Shutdown.");
 			}
 			shutdown();
 		}
@@ -123,6 +123,7 @@ public class ObjectServer {
 				System.err.println("\tReason: " + e.getClass().getName());
 				System.err.println("\tMessage: " + e.getMessage());
 			}
+		System.exit(0);
 	}
 	
 	private static void receive() throws ClassCastException, ClassNotFoundException, IOException {

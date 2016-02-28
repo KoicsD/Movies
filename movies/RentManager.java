@@ -280,7 +280,7 @@ public class RentManager {
 			shutdownServer();
 			System.out.println("Success");
 			System.out.println("Bye.");
-			return;  // no need of finally block
+			System.exit(0);  // no need of finally block
 		} catch (ClassCastException e) {
 			System.out.println("An Object cannot be casted to Product");
 			System.out.println("\tMessage: " + e.getMessage());
@@ -291,7 +291,7 @@ public class RentManager {
 			System.out.println("Server decided to Shutdown");
 			tryToCloseConnection();
 			System.out.println("Bye.");
-			return;  // no need to try to shutdown server
+			System.exit(0);  // no need to try to shutdown server
 		}
 		catch (IOException e) {
 			System.out.println("An IOException has occoured");
