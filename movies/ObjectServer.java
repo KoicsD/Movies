@@ -23,9 +23,9 @@ public class ObjectServer {
 	private static Socket socket = null;
 	
 	// object streams:
-	private static ObjectInputStream objInpStreamFromSocket = null;
+	private static ObjectInputStream objInStreamFromSocket = null;
 	private static ObjectOutputStream objOutStremToSocket = null;
-	private static ObjectInputStream objInpStreamFromFile = null;
+	private static ObjectInputStream objInStreamFromFile = null;
 	private static ObjectOutputStream objOutStreamToFile = null;
 
 	public static void main(String[] args) {
@@ -48,25 +48,21 @@ public class ObjectServer {
 	}
 	
 	private static void receive() throws ClassNotFoundException, IOException {
-		try { // EOFException if nothing has been sent yet
-			Object objectReceived = objInpStreamFromSocket.readObject();
-			if (objectReceived instanceof Command) {
-				switch ((Command)objectReceived) {
-					case GET:
-						switchToLoadMode();
-						send(load());
-						break;
-					case PUT:
-						switchToSaveMode();
-						break;
-					case EXIT:
-						shutdown();
-				}
-			} else if (mode != null && mode.equals(ServerMode.SAVE)) {
-						save((Product)objectReceived);
+		Object objectReceived = objInStreamFromSocket.readObject();
+		if (objectReceived instanceof Command) {
+			switch ((Command)objectReceived) {
+				case GET:
+					switchToLoadMode();
+					send(load());
+					break;
+				case PUT:
+					switchToSaveMode();
+					break;
+				case EXIT:
+					shutdown();
 			}
-		} catch (EOFException e) {
-			// nothing has been sent yet, nothing to do
+		} else if (mode != null && mode.equals(ServerMode.SAVE)) {
+					save((Product)objectReceived);
 		}
 	}
 	
