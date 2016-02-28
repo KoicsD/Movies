@@ -1,5 +1,6 @@
 package movies;
 
+import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.Socket;
@@ -12,12 +13,20 @@ public class RentManager {
 	private static final int TCP = 5000;
 	private static final String IP = "127.0.0.1";
 	
-	private static Socket connection = null;
+	private static Socket connectionToServer = null;
 	private static ObjectOutputStream objOutStreamToServer = null;
 	private static ObjectInputStream objInStreamFromServer = null;
 	
-	private static void setupConnection() {
-		// TODO: here to setup server-connection
+	private static void setupConnection() throws IOException {
+		connectionToServer = new Socket(IP, TCP);
+		objOutStreamToServer = new ObjectOutputStream(connectionToServer.getOutputStream());
+		objInStreamFromServer = new ObjectInputStream(connectionToServer.getInputStream());
+		Object prompt = null;
+		try {
+			prompt = objInStreamFromServer.readObject();
+		} catch (ClassNotFoundException e) {}
+		if (!(prompt instanceof Command) || !(((Command)prompt).equals(Command.GET)))
+			throw new ProtocollException("Server does not send command GET after connecting");
 	}
 	
 	private static void shutdownServer() {
