@@ -29,8 +29,30 @@ public class RentManager {
 			throw new ProtocollException("Server does not send command GET after connecting");
 	}
 	
-	private static void shutdownServer() {
-		// TODO: here to shutdown server and close connection
+	private static void shutdownServer() throws IOException {
+		objOutStreamToServer.writeObject(Command.EXIT);
+		tryToCloseConnection();
+	}
+	
+	private static void tryToCloseConnection() {
+		if (objOutStreamToServer != null)
+			try {
+				objOutStreamToServer.close();
+			} catch (IOException e) {
+				System.out.println("Unable to close OutputStream to Server");
+			}
+		if (objInStreamFromServer != null)
+			try {
+				objInStreamFromServer.close();
+			} catch (IOException e) {
+				System.out.println("Unable to close InputStream from Server");
+			}
+		if (connectionToServer != null)
+			try {
+				connectionToServer.close();
+			} catch (IOException e) {
+				System.out.println("Unable to close connection to Server");
+			}
 	}
 	
 	private static void sendData(List<Product> products) {
