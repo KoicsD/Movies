@@ -47,7 +47,7 @@ public class ObjectServer {
 			System.err.println("\tType: " + e.getClass().getName());
 			System.err.println("\tMessage: " + e.getMessage());
 		} finally {
-			System.out.println("Error occoured");
+			System.out.println("Error has occoured");
 			try {
 				objOutStreamToClient.writeObject(Command.EXIT);
 			} catch (NullPointerException | IOException e) {

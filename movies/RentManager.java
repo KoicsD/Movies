@@ -9,7 +9,8 @@ import java.util.List;
 
 
 public class RentManager {
-	private static final String XML_FILE_PATH = "Data/products.xml";
+	private static final String DATA_SENT_XML_PATH = "Data/products_sent.xml";
+	private static final String DATA_RECEIVED_XML_PATH = "Data/products_received.xml";
 	private static final int TCP = 5000;
 	private static final String IP = "127.0.0.1";
 	
@@ -252,7 +253,58 @@ public class RentManager {
 	
 	public static void main(String[] args) {
 		List<Product> demoProducts = generateDemoData();
+		System.out.println("Products to be sent:");
+		System.out.println();
 		printInvestments(demoProducts);
-		Tools.tryToWriteXMLFile(new ArrayList<XMLCompatible>(demoProducts), XML_FILE_PATH, "products");
+		System.out.println();
+		Tools.tryToWriteXMLFile(new ArrayList<XMLCompatible>(demoProducts), DATA_SENT_XML_PATH, "products");
+		System.out.println();
+		try {
+			System.out.println("Connecting to server...");
+			setupConnection();
+			System.out.println("Connection established");
+			System.out.println("Sending data...");
+			sendData(demoProducts);
+			System.out.println("Success");
+			System.out.println("Receiving data...");
+			List<Product> receivedData = receiveData();
+			System.out.println("Success");
+			System.out.println();
+			System.out.println("Data received:");
+			System.out.println();
+			printInvestments(receivedData);
+			System.out.println();
+			Tools.tryToWriteXMLFile(new ArrayList<XMLCompatible>(demoProducts), DATA_RECEIVED_XML_PATH, "products");
+			System.out.println();
+			System.out.println("Stopping server...");
+			shutdownServer();
+			System.out.println("Success");
+			System.out.println("Bye.");
+			return;  // no need of finally block
+		} catch (ClassCastException e) {
+			System.out.println("An Object cannot be casted to Product");
+			System.out.println("\tMessage: " + e.getMessage());
+		} catch (ClassNotFoundException e) {
+			System.out.println("Class of an Object cannot be found");
+			System.out.println("\tMessage: " + e.getMessage());
+		} catch (ServerShutdownException e) {
+			System.out.println("Server decided to Shutdown");
+			tryToCloseConnection();
+			System.out.println("Bye.");
+			return;  // no need to try to shutdown server
+		}
+		catch (IOException e) {
+			System.out.println("An IOException has occoured");
+			System.out.println("Type: " + e.getClass().getName());
+			System.out.println("\tReason: "+ e.getMessage());
+		} finally {
+			try {
+				shutdownServer();
+			} catch (NullPointerException | IOException e) {
+				System.out.println("Unable to invoke Server-Shutdown");
+				tryToCloseConnection();
+				System.out.println("Bye.");
+			}
+		}
 	}
 }

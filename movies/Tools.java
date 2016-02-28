@@ -24,6 +24,7 @@ public class Tools
 		try
 		{
 			File file = new File(filePath);
+			System.out.println("XML Filepath: " + file.getAbsolutePath());
 			if (file.createNewFile())
 			{
 				System.out.println("File was not but has been created.");
@@ -36,13 +37,15 @@ public class Tools
 		}
 		catch (IOException e)
 		{
-			System.out.println("An IOEexception was thrown when creating new file:");
-			System.out.println(e.getMessage());
+			System.out.println("An IOEexception was thrown when writing into file:");
+			System.out.println("\tType: " + e.getClass().getName());
+			System.out.println("\tMessage: " + e.getMessage());
 		}
 		catch (SecurityException e)
 		{
-			System.out.println("A SecurityEexception was thrown when creating new file:");
-			System.out.println(e.getMessage());
+			System.out.println("A SecurityEexception was thrown when writing into file:");
+			System.out.println("\tType: " + e.getClass().getName());
+			System.out.println("\tMessage: " + e.getMessage());
 		}
 		return false;
 	}
