@@ -1,11 +1,38 @@
 package movies;
 
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.net.Socket;
 import java.util.ArrayList;
 import java.util.List;
 
 
 public class RentManager {
 	private static final String XML_FILE_PATH = "Data/products.xml";
+	private static final int TCP = 5000;
+	private static final String IP = "127.0.0.1";
+	
+	private static Socket connection = null;
+	private static ObjectOutputStream objOutStreamToServer = null;
+	private static ObjectInputStream objInStreamFromServer = null;
+	
+	private static void setupConnection() {
+		// TODO: here to setup server-connection
+	}
+	
+	private static void shutdownServer() {
+		// TODO: here to shutdown server and close connection
+	}
+	
+	private static void sendData(List<Product> products) {
+		// TODO: here to send products to server from a list
+	}
+	
+	private static List<Product> receiveData() {
+		List<Product> products = new ArrayList<>();
+		// TODO: here to receive data from server to a list
+		return products;
+	}
 
 	public static int summarizeIncome(List<Buyable> products)
 	{
