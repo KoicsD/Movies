@@ -19,12 +19,12 @@ public class ObjectServer {
 	private static ServerMode mode;
 	
 	// sockets:
-	private static ServerSocket server = null;
-	private static Socket socket = null;
+	private static ServerSocket serverObj = null;
+	private static Socket connectionToClient = null;
 	
 	// object streams:
-	private static ObjectInputStream objInStreamFromSocket = null;
-	private static ObjectOutputStream objOutStremToSocket = null;
+	private static ObjectInputStream objInStreamFromClient = null;
+	private static ObjectOutputStream objOutStreamToClient = null;
 	private static ObjectInputStream objInStreamFromFile = null;
 	private static ObjectOutputStream objOutStreamToFile = null;
 
@@ -39,16 +39,72 @@ public class ObjectServer {
 		}
 	}
 	
-	private static void startup() {
-		// TODO: here to start server and invoke accept()
+	private static void startup() throws IOException {
+		serverObj = new ServerSocket(TCP);
+		connectionToClient = serverObj.accept();
+		objOutStreamToClient = new ObjectOutputStream(connectionToClient.getOutputStream());
+		objInStreamFromClient = new ObjectInputStream(connectionToClient.getInputStream());
 	}
 	
 	private static void shutdown() {
-		// TODO: here to close all sockets and streams and invoke System.exit()
+		if (objOutStreamToFile != null)
+			try {
+				objOutStreamToFile.close();
+				objOutStreamToFile = null;
+			} catch(IOException e) {
+				System.err.println("RESOURCE-LEAKAGE: Unable to close OutputStream to File\n");
+				System.err.println("\tReason: " + e.getClass().getName());
+				System.err.println("\tMessage: " + e.getMessage());
+			}
+		if (objInStreamFromFile != null)
+			try {
+				objInStreamFromFile.close();
+				objInStreamFromFile = null;
+			} catch(IOException e) {
+				System.err.println("RESOURCE-LEAKAGE: Unable to close InputStream from File\n");
+				System.err.println("\tReason: " + e.getClass().getName());
+				System.err.println("\tMessage: " + e.getMessage());
+			}
+		if (objOutStreamToClient != null)
+			try {
+				objOutStreamToClient.close();
+				objOutStreamToClient = null;
+			} catch(IOException e) {
+				System.err.println("RESOURCE-LEAKAGE: Unable to close OutputStream to Client\n");
+				System.err.println("\tReason: " + e.getClass().getName());
+				System.err.println("\tMessage: " + e.getMessage());
+			}
+		if (objInStreamFromClient != null)
+			try {
+				objInStreamFromClient.close();
+				objInStreamFromClient = null;
+			} catch(IOException e) {
+				System.err.println("RESOURCE-LEAKAGE: Unable to close InputStream from Client\n");
+				System.err.println("\tReason: " + e.getClass().getName());
+				System.err.println("\tMessage: " + e.getMessage());
+			}
+		if (connectionToClient != null)
+			try {
+				connectionToClient.close();
+				connectionToClient = null;
+			} catch(IOException e) {
+				System.err.println("RESOURCE-LEAKAGE: Unable to close Socket-connection to Client\n");
+				System.err.println("\tReason: " + e.getClass().getName());
+				System.err.println("\tMessage: " + e.getMessage());
+			}
+		if (serverObj != null)
+			try {
+				serverObj.close();
+				serverObj = null;
+			} catch(IOException e) {
+				System.err.println("RESOURCE-LEAKAGE: Unable to close ServerSocket\n");
+				System.err.println("\tReason: " + e.getClass().getName());
+				System.err.println("\tMessage: " + e.getMessage());
+			}
 	}
 	
 	private static void receive() throws ClassNotFoundException, IOException {
-		Object objectReceived = objInStreamFromSocket.readObject();
+		Object objectReceived = objInStreamFromClient.readObject();
 		if (objectReceived instanceof Command) {
 			switch ((Command)objectReceived) {
 				case GET:
