@@ -1,5 +1,6 @@
 package movies;
 
+import java.io.EOFException;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -104,7 +105,7 @@ public class ObjectServer {
 			}
 	}
 	
-	private static void receive() throws ClassNotFoundException, IOException {
+	private static void receive() throws ClassCastException, ClassNotFoundException, IOException {
 		Object objectReceived = objInStreamFromClient.readObject();
 		if (objectReceived instanceof Command) {
 			switch ((Command)objectReceived) {
@@ -155,13 +156,19 @@ public class ObjectServer {
 		}
 	}
 	
-	private static void save(Product product) {
-		// TODO: here to send Product to .ser file
+	private static void save(Product product) throws IOException {
+		objOutStreamToFile.writeObject(product);
 	}
 	
-	private static List<Product> load() {
+	private static List<Product> load() throws IOException, ClassNotFoundException, ClassCastException {
 		List<Product> products = new ArrayList<>();
-		// TODO: here to recall Products from .ser file to a list
+		try {
+			while (true) {
+				products.add((Product)objInStreamFromFile.readObject());
+			}
+		} catch (EOFException e) {
+			// end of file, nothing to do
+		}
 		return products;
 	}
 
