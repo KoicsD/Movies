@@ -47,6 +47,7 @@ public class ObjectServer {
 			System.err.println("\tType: " + e.getClass().getName());
 			System.err.println("\tMessage: " + e.getMessage());
 		} finally {
+			System.out.println("Error occoured");
 			try {
 				objOutStreamToClient.writeObject(Command.EXIT);
 			} catch (NullPointerException | IOException e) {
@@ -58,13 +59,16 @@ public class ObjectServer {
 	
 	private static void startup() throws IOException {
 		serverObj = new ServerSocket(TCP);
+		System.out.println("Server startup successful");
 		connectionToClient = serverObj.accept();
 		objOutStreamToClient = new ObjectOutputStream(connectionToClient.getOutputStream());
 		objInStreamFromClient = new ObjectInputStream(connectionToClient.getInputStream());
+		System.out.println("Connection with Client established");
 		objOutStreamToClient.writeObject(Command.GET);
 	}
 	
 	private static void shutdown() {
+		System.out.println("Shutdown");
 		if (objOutStreamToFile != null)
 			try {
 				objOutStreamToFile.close();
@@ -134,9 +138,12 @@ public class ObjectServer {
 					break;
 				case EXIT:
 					shutdown();
+					break;
 			}
 		} else if (mode != null && mode.equals(ServerMode.SAVE)) {
 					save((Product)objectReceived);
+		} else {
+			throw new ProtocollException("Attempt to send Object when ObjectServer not in SAVE mode");
 		}
 	}
 	
@@ -145,7 +152,7 @@ public class ObjectServer {
 		for (Product product: products) {
 			objOutStreamToClient.writeObject(product);
 		}
-		objOutStreamToClient.writeObject(Command.GET);
+		objOutStreamToClient.writeObject(Command.GET);  // This is important: Client has to be informed
 	}
 	
 	private static void switchToLoadMode() throws IOException {
