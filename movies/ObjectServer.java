@@ -123,8 +123,12 @@ public class ObjectServer {
 		}
 	}
 	
-	private static void send(List<Product> products) {
-		// TODO: here to send products from a list
+	private static void send(List<Product> products) throws IOException {
+		objOutStreamToClient.writeObject(Command.PUT);
+		for (Product product: products) {
+			objOutStreamToClient.writeObject(product);
+		}
+		objOutStreamToClient.writeObject(Command.GET);
 	}
 	
 	private static void switchToLoadMode() throws IOException {
