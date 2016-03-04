@@ -1,6 +1,7 @@
 package movies;
 
 import java.io.EOFException;
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -164,7 +165,16 @@ public class ObjectServer {
 	
 	private static void switchToSaveMode() throws IOException {
 		closeFile();
-		objOutStreamToFile = new ObjectOutputStream(new FileOutputStream(FILE_PATH));
+		File fileObj = new File(FILE_PATH);
+		if (fileObj.length() == 0)
+			objOutStreamToFile = new ObjectOutputStream(new FileOutputStream(fileObj));
+		else
+			objOutStreamToFile = new ObjectOutputStream(new FileOutputStream(fileObj, true)) {
+				@Override
+				protected void writeStreamHeader() throws IOException {
+					reset();
+				}
+			};
 		mode = ServerMode.SAVE;
 	}
 	
